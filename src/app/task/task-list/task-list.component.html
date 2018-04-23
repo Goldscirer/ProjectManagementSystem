@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h1>Choose a project</h1>
+
+    <form>
+      <select class="custom-select" style="width:200px; margin-bottom: 20px" (change)="slectChangeHandler($event)">
+        <option class="form-control" *ngFor="let projectEl of project; let i = index" [value]=i>
+          {{projectEl.name}}
+        </option>
+      </select>
+    </form>
+    <hr>
+    <div class="row" *ngIf="showTask()">
+      <app-task-item
+        *ngFor="let taskEl of prj.task; let i = index"
+        [task]="taskEl"
+        [projectId]="projectSelected"
+        [index]="i"></app-task-item>
+    </div>
+
+
+
+  </div>
+  <div class="col-xs-6">
+    <router-outlet [id]="index"><p></p></router-outlet>
+  </div>
+</div>

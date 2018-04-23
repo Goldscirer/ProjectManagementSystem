@@ -1,18 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>N5CompleteGuide</title>
-  <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-
-<router-outlet></router-outlet>
-
-</body>
-</html>
+<app-header (featureSelected)="onNavigate($event)"></app-header>
+<div class="container" style="background-color: rgba(255, 255, 255, 0.8); padding: 30px; padding-bottom: 55%">
+  <div class="row">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
 
 

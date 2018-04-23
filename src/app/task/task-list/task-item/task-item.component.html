@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-xs-12">
+      <a
+        style="cursor: pointer;"
+        [routerLink]="[index, projectId]"
+        routerLinkActive="active"
+        class="list-group-item clearfix"
+        (click)="ifStatus()">
+        {{ task.name }}
+      </a>
+  </div>
+</div>
