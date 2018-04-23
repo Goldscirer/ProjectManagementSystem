@@ -1,0 +1,125 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!projectForm.valid">Save
+          </button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              type="text"
+              id="description"
+              class="form-control"
+              formControlName="description"
+              rows="6"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12" formArrayName="task">
+          <div
+            class="row"
+            *ngFor="let ingredientCtrl of projectForm.get('task').controls; let i = index"
+            [formGroupName]="i"
+            style="margin-top: 10px;">
+            <div class="col-xs-9" style="margin-bottom: 10px">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name">
+            </div>
+            <div class="col-xs-5">
+              <textarea class="form-control" formControlName="description" rows="5" id="comment">
+              </textarea>
+            </div>
+            <div class="col-xs-4">
+              <select
+                class="form-control"
+                formControlName="state">
+                <option>Submitted</option>
+                <option>Open</option>
+                <option>In Progress</option>
+                <option>To be discussed</option>
+                <option>Can't Reproduce</option>
+                <option>Fixed</option>
+                <option>Incomplete</option>
+                <option>Verified</option>
+                <option>Done</option>
+              </select>
+            </div>
+
+            <div class="col-xs-4">
+              <select
+                class="form-control"
+                formControlName="type">
+                <option>Feature</option>
+                <option>Bug</option>
+                <option>Cosmetics</option>
+                <option>Exception</option>
+                <option>Task</option>
+                <option>Usability Problem</option>
+              </select>
+            </div>
+
+            <div class="col-xs-4">
+              <select
+                class="form-control"
+                formControlName="priority">
+                <option>Critical</option>
+                <option>Major</option>
+                <option>Normal</option>
+                <option>Minor</option>
+              </select>
+            </div>
+            <div class="col-xs-4">
+              <select
+                class="form-control"
+                formControlName="member">
+                <option>unassigned</option>
+                <option *ngFor="let profileEl of profile;">{{profileEl.name}} {{profileEl.surname}}</option>
+              </select>
+            </div>
+            <div class="col-xs-2">
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onDeleteTask(i)">X
+              </button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="onAddTask()">Add Task
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

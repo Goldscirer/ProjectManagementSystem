@@ -1,0 +1,10 @@
+<div class="row" style="padding: 5%">
+  <h1>Your Profile</h1>
+  <hr>
+  <app-profile-detail *ngFor="let profileEl of profile; let i = index"
+                      [profile]="profileEl"
+                      [index]="i"></app-profile-detail>
+  <hr>
+  <app-profile-edit></app-profile-edit>
+
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataStorageService} from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-projects',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-
-  constructor() { }
+  constructor(private dataStorage: DataStorageService) { }
 
   ngOnInit() {
+    this.dataStorage.getProjects();
+    this.dataStorage.getProfile();
   }
-
 }

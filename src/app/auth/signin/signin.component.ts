@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../auth.service';
 
@@ -7,9 +7,20 @@ import {AuthService} from '../auth.service';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
+
+/**
+ *
+ * @whatItDoes
+ * @howToUse
+ * {@example
+ * @description
+ * Responsible for user login.
+ * @stable
+ */
 export class SigninComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
   }
